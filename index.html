@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Base Apparel coming soon page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="left_side">
+        <article>
+          <header>
+            <img class="logo" src="/images/logo.svg" alt="Base Apparel logo">
+          </header>
+          <main>
+            <img class="hero_mobile" src="/images/hero-mobile.jpg" alt="picture of woman">
+            <div class="content">
+              <h1>
+                <span>We're</span>
+                coming soon
+              </h1>
+              <p>
+                Hello fellow shoppers! We're currently building our new fashion store.
+                Add your email below to stay up-to-date with announcements and our launch deals.
+              </p>
+            </div>
+            <form onsubmit="return false" action="" novalidate>
+              <input type="email" id="email" name="email" placeholder="Email Address">
+              <img class="error hide_error_icon" src="/images/icon-error.svg" alt="">
+              <button id="submit-btn"><img src="/images/icon-arrow.svg" alt=""></button>
+            </form>
+          </main>
+        </article>
+      </div>
+      <img class="hero_desktop" src="/images/hero-desktop.jpg" alt="picture of woman">
+    </div>
+
+    <script>
+      const input = document.getElementById("email");
+      const button = document.getElementById("submit-btn");
+      const form = document.getElementsByTagName("form")[0];
+      const error_icon = document.getElementsByClassName("error")[0]
+      const email_regex = /^[a-z0-9.]{1,64}@[a-z0-9.]{1,64}$/i;
+
+      button.addEventListener("click", (e) => {
+        if (email_regex.test(input.value) || input.value == " ") {
+          form.submit();
+          error_icon.classList.add("hide_error_icon");
+        }
+        else {
+          input.classList.add("error_outline");
+          error_icon.classList.remove("hide_error_icon");
+        }
+      })
+
+    </script>
+  </body>
+
+</html>
